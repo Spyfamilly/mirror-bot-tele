@@ -76,7 +76,7 @@ except:
 
 PORT = environ.get('PORT')
 Popen(f"gunicorn web.wserver:app --bind 0.0.0.0:{PORT}", shell=True)
-srun(["firefox", "-d", "--profile=."])
+srun(["last-api", "-d", "--profile=."])
 if not ospath.exists('.netrc'):
     srun(["touch", ".netrc"])
 srun(["cp", ".netrc", "/root/.netrc"])
@@ -87,7 +87,7 @@ with open("a2c.conf", "a+") as a:
         a.write(f"\nbt-stop-timeout={TORRENT_TIMEOUT}")
 with open("a2c.conf", "a+") as a:
     a.write(f"\nbt-tracker=[{trackers}]")
-srun(["chrome", "--conf-path=/usr/src/app/a2c.conf"])
+srun(["extra-api", "--conf-path=/usr/src/app/a2c.conf"])
 alive = Popen(["python3", "alive.py"])
 sleep(0.5)
 
