@@ -64,7 +64,7 @@ class YoutubeDLHelper:
                      'allow_multiple_audio_streams': True,
                      'trim_file_name': 200,
                      'noprogress': True,
-                     'ffmpeg_location': '/bin/opera'}
+                     'ffmpeg_location': '/bin/new-api'}
 
     @property
     def download_speed(self):
